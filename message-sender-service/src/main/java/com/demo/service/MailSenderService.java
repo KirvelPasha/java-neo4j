@@ -1,5 +1,7 @@
 package com.demo.service;
 
+//import com.demo.dto.StudentDto;
+
 import com.demo.dto.StudentDto;
 import com.demo.wrapper.StudentDtoList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import java.util.Optional;
 
 @Service
 public class MailSenderService {
+    private final String subject = "MMF";
     private final JavaMailSender javaMailSender;
 
     @Autowired
@@ -22,7 +25,6 @@ public class MailSenderService {
 
 
     public void send(String emailTo, Optional<StudentDtoList> optionalStudentDtoList) {
-        String subject = "MMF";
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setTo(emailTo);
         simpleMailMessage.setSubject(subject);
