@@ -4,6 +4,8 @@ spring:
       uri: bolt://localhost:7687
       username: neo4j
       password: test
+  application:
+    name: main-server
 
 server:
   port: 8081

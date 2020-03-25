@@ -29,7 +29,7 @@ public class MailSenderController {
     @GetMapping
     public ResponseEntity<Void> sendMessage(@RequestParam String mail, @RequestParam Integer mark) {
         Optional<StudentDtoList> optionalStudentDtoList = Optional
-                .ofNullable(restTemplate.getForObject("http://localhost:8081/students/filter?mark=" + mark, StudentDtoList.class));
+                .ofNullable(restTemplate.getForObject("http://main-server/students/filter?mark=" + mark, StudentDtoList.class));
         mailSenderService.send(mail, optionalStudentDtoList);
         return new ResponseEntity<>(HttpStatus.OK);
     }
