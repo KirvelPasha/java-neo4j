@@ -1,6 +1,5 @@
 package com.demo.service;
 
-//import com.demo.dto.StudentDto;
 
 import com.demo.dto.StudentDto;
 import com.demo.wrapper.StudentDtoList;
@@ -22,7 +21,6 @@ public class MailSenderService {
     public MailSenderService(@Qualifier("getJavaMailSender") JavaMailSender javaMailSender) {
         this.javaMailSender = javaMailSender;
     }
-
 
     public void send(String emailTo, Optional<StudentDtoList> optionalStudentDtoList) {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();

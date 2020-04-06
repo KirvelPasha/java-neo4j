@@ -3,6 +3,9 @@ package com.demo.node;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
+
+import java.util.List;
 
 @NodeEntity(label = "Student")
 public class Student {
@@ -13,6 +16,8 @@ public class Student {
     private String password;
     private Integer mark;
     private String mail;
+    @Relationship(type = "STUDY_AT")
+    private Faculty faculty;
 
     public Long getId() {
         return id;
@@ -54,14 +59,11 @@ public class Student {
         this.mail = mail;
     }
 
+    public Faculty getFaculty() {
+        return faculty;
+    }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", mail='" + mail + '\'' +
-                '}';
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
     }
 }

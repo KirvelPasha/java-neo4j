@@ -1,26 +1,23 @@
 package com.demo.converter;
 
+import com.demo.dto.FacultyDto;
 import com.demo.dto.StudentDto;
+import com.demo.node.Faculty;
 import com.demo.node.Student;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StudentConverter {
-
+public class FacultyConverter {
     private final ModelMapper modelMapper;
 
     @Autowired
-    public StudentConverter(ModelMapper modelMapper) {
+    public FacultyConverter(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
 
-    public StudentDto convertToDto(Student student) {
-        return modelMapper.map(student, StudentDto.class);
-    }
-
-    public Student convertToEntity(StudentDto studentDto) {
-        return modelMapper.map(studentDto, Student.class);
+    public FacultyDto convertToDto(Faculty faculty) {
+        return modelMapper.map(faculty, FacultyDto.class);
     }
 }
