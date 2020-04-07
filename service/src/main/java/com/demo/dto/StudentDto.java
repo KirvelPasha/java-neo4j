@@ -1,10 +1,9 @@
 package com.demo.dto;
 
-import com.demo.node.Faculty;
+import com.demo.node.Specialty;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import java.util.List;
 
 public class StudentDto {
     private Long id;
@@ -15,7 +14,7 @@ public class StudentDto {
     @Min(value = 4)
     private Integer mark;
     private String mail;
-    private Faculty faculty;
+    private Specialty specialty;
 
     public Long getId() {
         return id;
@@ -57,12 +56,12 @@ public class StudentDto {
         this.mail = mail;
     }
 
-    public Faculty getFaculty() {
-        return faculty;
+    public Specialty getSpecialty() {
+        return specialty;
     }
 
-    public void setFaculty(Faculty faculty) {
-        this.faculty = faculty;
+    public void setSpecialty(Specialty specialty) {
+        this.specialty = specialty;
     }
 
     @Override

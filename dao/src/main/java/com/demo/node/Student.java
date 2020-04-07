@@ -17,7 +17,7 @@ public class Student {
     private Integer mark;
     private String mail;
     @Relationship(type = "STUDY_AT")
-    private Faculty faculty;
+    private Specialty specialty;
 
     public Long getId() {
         return id;
@@ -59,11 +59,11 @@ public class Student {
         this.mail = mail;
     }
 
-    public Faculty getFaculty() {
-        return faculty;
+    public Specialty getSpecialty() {
+        return specialty;
     }
 
-    public void setFaculty(Faculty faculty) {
-        this.faculty = faculty;
+    public void setSpecialty(Specialty specialty) {
+        this.specialty = specialty;
     }
 }
