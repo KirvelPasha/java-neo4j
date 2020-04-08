@@ -1,23 +1,37 @@
 version: '3'
 
 volumes:
-  data:
+    data:
 
 services:
 
-  web:
-    build: web/
+  discovery:
+    build: discovery-server/
     ports:
-      - 8081:8081
+      - 8761:8761
 
 
   mail:
     build: message-sender-service/
     ports:
       - 8082:8082
+    links:
+      - discovery
 
-  discovery:
-    build: discovery-server/
+  web:
+    build: web/
+    ports:
+      - 8081:8081
+    links:
+      - discovery
+#      - db
 
-  db:
-    data:/data
+#
+#  db:
+#    neo4j/data:/data
+
+
+#  docker run \
+#  --publish=7474:7474 --publish=7687:7687 \
+#  --volume=data:/data \
+#  neo4j

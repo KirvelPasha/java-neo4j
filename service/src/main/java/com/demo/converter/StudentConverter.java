@@ -1,7 +1,6 @@
 package com.demo.converter;
 
 import com.demo.dto.StudentDto;
-import com.demo.node.Faculty;
 import com.demo.node.Student;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

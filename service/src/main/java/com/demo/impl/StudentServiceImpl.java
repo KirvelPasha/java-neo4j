@@ -22,6 +22,7 @@ public class StudentServiceImpl implements StudentService {
         this.userConverter = userConverter;
     }
 
+
     @Override
     public List<StudentDto> getAll() {
         return studentRepository.getAll()
@@ -41,6 +42,7 @@ public class StudentServiceImpl implements StudentService {
         if (mark < 4 || mark > 10) {
             throw new IllegalArgumentException();
         }
+
         return studentRepository.getByFilter(mark)
                 .stream()
                 .map(userConverter::convertToDto)

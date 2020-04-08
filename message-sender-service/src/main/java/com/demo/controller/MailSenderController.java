@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("C")
+@RequestMapping()
 public class MailSenderController {
     private final RestTemplate restTemplate;
     private final MailSenderService mailSenderService;
@@ -25,6 +25,7 @@ public class MailSenderController {
         this.restTemplate = restTemplate;
         this.mailSenderService = mailSenderService;
     }
+
 
     @GetMapping("/hello")
     public String sendMessage() {
