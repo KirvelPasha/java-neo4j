@@ -9,27 +9,30 @@ services:
     build: discovery-server/
     hostname: discovery
     ports:
-      - 8761:8761
-
-
-  mail:
-    build: message-sender-service/
-    ports:
-      - 8082:8082
-    links:
-      - discovery
+      - "8761:8761"
+#
+#  mail:
+#    build: message-sender-service/
+#    ports:
+#      - "8082:8082"
+#    links:
+#      - discovery
 
   web:
     build: web/
     ports:
-      - 8081:8081
+      - "8081:8081"
     links:
       - discovery
-#      - db
+      - neo4j
 
-#
-#  db:
-#    neo4j/data:/data
+  neo4j:
+    image: neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - data:/data
 
 
 #  docker run \
