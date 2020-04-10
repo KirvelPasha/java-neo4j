@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Optional;
 
 @RestController
-@RequestMapping()
+@RequestMapping("/mails")
 public class MailSenderController {
     private final RestTemplate restTemplate;
     private final MailSenderService mailSenderService;

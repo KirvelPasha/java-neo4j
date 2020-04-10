@@ -9,5 +9,12 @@ spring:
     username: your@gmail.com
     password: your
 
+
+eureka:
+
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka
+
 server:
   port: 8082

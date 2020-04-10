@@ -6,19 +6,22 @@ volumes:
 services:
 
   discovery:
+    container_name: discovery-server
     build: discovery-server/
     hostname: discovery
     ports:
       - "8761:8761"
-#
-#  mail:
-#    build: message-sender-service/
-#    ports:
-#      - "8082:8082"
-#    links:
-#      - discovery
+
+  mail:
+    container_name: mail-server
+    build: message-sender-service/
+    ports:
+      - "8082:8082"
+    links:
+      - discovery
 
   web:
+    container_name: web-server
     build: web/
     ports:
       - "8081:8081"
@@ -33,9 +36,3 @@ services:
       - "7687:7687"
     volumes:
       - data:/data
-
-
-#  docker run \
-#  --publish=7474:7474 --publish=7687:7687 \
-#  --volume=data:/data \
-#  neo4j
