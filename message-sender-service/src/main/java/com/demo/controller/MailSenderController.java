@@ -26,12 +26,6 @@ public class MailSenderController {
         this.mailSenderService = mailSenderService;
     }
 
-
-    @GetMapping("/hello")
-    public String sendMessage() {
-       return "Hello World";
-    }
-
     @GetMapping
     public ResponseEntity<Void> sendMessage(@RequestParam String mail, @RequestParam Integer mark) {
         Optional<StudentDtoList> optionalStudentDtoList = Optional

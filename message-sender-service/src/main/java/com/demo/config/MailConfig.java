@@ -25,15 +25,6 @@ public class MailConfig {
     @Value("${spring.mail.protocol}")
     private String protocol;
 
-//    @Value("${spring.mail.debug}")
-//    private String debug;
-//
-//    @Value("${spring.mail.properties.mail.smtp.auth}")
-//    private String auth;
-//
-//    @Value("${spring.mail.properties.mail.smtp.starttls.enable}")
-//    private String enable;
-
     @Bean
     public JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
