@@ -2,17 +2,20 @@ package com.demo.node;
 
 import org.neo4j.ogm.annotation.*;
 
-@RelationshipEntity(type = "STUDY_AT")
+import java.util.List;
+
+
+@NodeEntity(label = "Specialty")
 public class Specialty {
     @Id
     @GeneratedValue
     private Long id;
     private String name;
-    private int rating;
-    @StartNode
-    private Student student;
-    @EndNode
-    private Faculty faculty;
+    @Relationship(type = "STUDY_AT", direction = Relationship.INCOMING)
+    private List<Student> studentList;
+//    @Relationship(type = "BELONG_TO")
+//    private Belong belong;
+
 
     public Long getId() {
         return id;
@@ -30,27 +33,13 @@ public class Specialty {
         this.name = name;
     }
 
-    public int getRating() {
-        return rating;
+    public List<Student> getStudentList() {
+        return studentList;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
     }
 
-    public Student getStudent() {
-        return student;
-    }
 
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public Faculty getFaculty() {
-        return faculty;
-    }
-
-    public void setFaculty(Faculty faculty) {
-        this.faculty = faculty;
-    }
 }

@@ -2,6 +2,7 @@ version: '3'
 
 volumes:
     data:
+    datadir:
 
 services:
 
@@ -36,3 +37,17 @@ services:
       - "7687:7687"
     volumes:
       - data:/data
+
+#
+#  mongo:
+#    image: mongo
+#    restart: always
+#    container_name: mongodb
+##    environment:
+##      MONGO_INITDB_ROOT_USERNAME: test
+##      MONGO_INITDB_ROOT_PASSWORD: test
+#    ports:
+#      - "2717:27017"
+#    volumes:
+#      - datadir:/data/db
+

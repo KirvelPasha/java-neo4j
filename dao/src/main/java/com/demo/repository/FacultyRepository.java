@@ -12,4 +12,7 @@ import java.util.List;
 public interface FacultyRepository extends Neo4jRepository<Faculty, Long> {
     @Query("MATCH (f:Faculty) Return f")
     List<Faculty> getAll();
+
+    @Query("MATCH (s:Specialty)-[r:BELONG_TO]->(f:Faculty) RETURN s, r, f")
+    List<Faculty> getAllTest();
 }

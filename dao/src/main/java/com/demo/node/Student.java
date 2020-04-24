@@ -1,11 +1,6 @@
 package com.demo.node;
 
-import org.neo4j.ogm.annotation.GeneratedValue;
-import org.neo4j.ogm.annotation.Id;
-import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Relationship;
-
-import java.util.List;
+import org.neo4j.ogm.annotation.*;
 
 @NodeEntity(label = "Student")
 public class Student {
@@ -17,7 +12,7 @@ public class Student {
     private Integer mark;
     private String mail;
     @Relationship(type = "STUDY_AT")
-    private Specialty specialty;
+    private Acting acting;
 
     public Long getId() {
         return id;
@@ -59,11 +54,15 @@ public class Student {
         this.mail = mail;
     }
 
-    public Specialty getSpecialty() {
-        return specialty;
-    }
-
-    public void setSpecialty(Specialty specialty) {
-        this.specialty = specialty;
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", mark=" + mark +
+                ", mail='" + mail + '\'' +
+                ", acting=" + acting +
+                '}';
     }
 }

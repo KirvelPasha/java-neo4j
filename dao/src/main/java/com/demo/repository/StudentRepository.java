@@ -15,4 +15,7 @@ public interface StudentRepository extends Neo4jRepository<Student, Long> {
 
     @Query("MATCH (s:Student)-[r:STUDY_AT]->(f:Faculty) WHERE s.mark > $mark RETURN s, r, f")
     List<Student> getByFilter(@Param("mark") Integer mark);
+
+    @Query("MATCH (s:Student)-[r:STUDY_AT]->(f:Specialty) RETURN s, r, f")
+    List<Student> getAllTest();
 }

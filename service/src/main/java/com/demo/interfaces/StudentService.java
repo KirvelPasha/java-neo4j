@@ -10,4 +10,6 @@ public interface StudentService {
     void save(StudentDto studentDto);
 
     List<StudentDto> getByFilter(Integer mark);
+
+    List<StudentDto> getAllTest();
 }

@@ -1,10 +1,12 @@
 package com.demo.wrapper;
 
 import com.demo.dto.StudentDto;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
 
+@Document(collection = "student")
 public class StudentDtoList {
     private List<StudentDto> studentDtoList;
 

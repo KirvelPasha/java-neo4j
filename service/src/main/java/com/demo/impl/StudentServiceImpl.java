@@ -48,4 +48,14 @@ public class StudentServiceImpl implements StudentService {
                 .map(userConverter::convertToDto)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<StudentDto> getAllTest() {
+        System.out.println(studentRepository.getAllTest());
+
+        return studentRepository.getAllTest()
+                .stream()
+                .map(userConverter::convertToDto)
+                .collect(Collectors.toList());
+    }
 }

@@ -23,7 +23,7 @@ public class StudentController {
 
     @GetMapping
     public ResponseEntity<List<StudentDto>> getAll() {
-        return new ResponseEntity<>(studentService.getAll(), HttpStatus.OK);
+        return new ResponseEntity<>(studentService.getAllTest(), HttpStatus.OK);
     }
 
     @PostMapping

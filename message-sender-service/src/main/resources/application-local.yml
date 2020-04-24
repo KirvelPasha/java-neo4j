@@ -8,14 +8,14 @@ spring:
     protocol: smtp
     username: your@gmail.com
     password: your
-
+#
 #  data:
 #    mongodb:
 #      host: localhost
 #      port: 2717
 #      database: email
-##      username: test
-##      password: test
+#      username: test
+#      password: test
 
 eureka:
   client:

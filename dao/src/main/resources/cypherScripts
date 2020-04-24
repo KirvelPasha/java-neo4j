@@ -1,0 +1,16 @@
+CREATE (n:Student { name: 'Andy'})
+
+CREATE (n:Specialty { name: 'web'})
+
+CREATE (n:Faculty { description: 'MMF'})
+
+MATCH (a:Student),(b:Specialty)
+WHERE a.name = 'Andy' AND b.name = 'web'
+CREATE (a)-[r:STUDY_AT]->(b)
+RETURN type(r)
+
+
+MATCH (a:Specialty),(b:Faculty)
+WHERE a.name = 'web' AND b.description = 'MMF'
+CREATE (a)-[r:BELONG_TO]->(b)
+RETURN type(r)

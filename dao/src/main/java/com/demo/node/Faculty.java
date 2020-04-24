@@ -7,13 +7,13 @@ import org.neo4j.ogm.annotation.Relationship;
 
 import java.util.List;
 
-@NodeEntity(label = "Faculty")
+//@NodeEntity(label = "Faculty")
 public class Faculty {
     @Id
     @GeneratedValue
     private Long id;
     private String description;
-    @Relationship(type = "STUDY_AT", direction = Relationship.INCOMING)
+    @Relationship(type = "BELONG_TO", direction = Relationship.INCOMING)
     private List<Specialty> specialties;
 
     public Long getId() {
