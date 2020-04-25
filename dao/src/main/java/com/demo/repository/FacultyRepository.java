@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FacultyRepository extends Neo4jRepository<Faculty, Long> {
-    @Query("MATCH (f:Faculty)<-[r:BELONG_TO]-(s:Specialty) RETURN f, r, s")
+    @Query("MATCH (s:Specialty)-[r:BELONG_TO]->(f:Faculty) RETURN f, r, s")
     Faculty get();
 }

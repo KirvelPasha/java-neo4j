@@ -23,6 +23,7 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 
     @Override
     public List<SpecialtyDto> getAll() {
+        System.out.println(specialtyRepository.get());
         return specialtyRepository.getAll()
                 .stream()
                 .map(specialtyConverter::convertToDto)

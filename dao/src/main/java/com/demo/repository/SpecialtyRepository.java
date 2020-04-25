@@ -12,5 +12,6 @@ public interface SpecialtyRepository extends Neo4jRepository<Specialty, Long> {
     @Query("MATCH p=()-[r:STUDY_AT]->() RETURN p")
     List<Specialty> getAll();
 
-
+    @Query("MATCH (s:Specialty)-[r:BELONG_TO]->(f:Faculty) RETURN f, r, s")
+    List<Specialty> get();
 }
