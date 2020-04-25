@@ -21,16 +21,16 @@ public class Acting {
         this.id = id;
     }
 
-    public Student getStudent() {
-        return student;
+    public String getStudent() {
+        return student.getLogin();
     }
 
     public void setStudent(Student student) {
         this.student = student;
     }
 
-    public Specialty getSpecialty() {
-        return specialty;
+    public String getSpecialty() {
+        return specialty.getName();
     }
 
     public void setSpecialty(Specialty specialty) {
@@ -49,8 +49,8 @@ public class Acting {
     public String toString() {
         return "Acting{" +
                 "id=" + id +
-                ", student=" + student +
-                ", specialty=" + specialty +
+                ", student=" + getStudent() +
+                ", specialty=" + getSpecialty() +
                 ", rating=" + rating +
                 '}';
     }

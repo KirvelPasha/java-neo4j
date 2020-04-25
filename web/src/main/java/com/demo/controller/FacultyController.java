@@ -1,7 +1,6 @@
 package com.demo.controller;
 
 import com.demo.dto.FacultyDto;
-import com.demo.dto.StudentDto;
 import com.demo.interfaces.FacultyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +22,7 @@ public class FacultyController {
     }
 
     @GetMapping
-    public ResponseEntity<List<FacultyDto>> getAll() {
-        return new ResponseEntity<>(facultyService.getAll(), HttpStatus.OK);
+    public ResponseEntity<FacultyDto> get() {
+        return new ResponseEntity<>(facultyService.get(), HttpStatus.OK);
     }
 }

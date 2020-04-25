@@ -1,6 +1,9 @@
 package com.demo.node;
 
-import org.neo4j.ogm.annotation.*;
+import org.neo4j.ogm.annotation.GeneratedValue;
+import org.neo4j.ogm.annotation.Id;
+import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
 
 @NodeEntity(label = "Student")
 public class Student {
@@ -52,6 +55,10 @@ public class Student {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public Acting getActing() {
+        return acting;
     }
 
     @Override

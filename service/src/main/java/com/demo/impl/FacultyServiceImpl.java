@@ -22,10 +22,8 @@ public class FacultyServiceImpl implements FacultyService {
     }
 
     @Override
-    public List<FacultyDto> getAll() {
-        return facultyRepository.getAll()
-                .stream()
-                .map(facultyConverter::convertToDto)
-                .collect(Collectors.toList());
+    public FacultyDto get() {
+        System.out.println(facultyRepository.get());
+        return facultyConverter.convertToDto(facultyRepository.get());
     }
 }

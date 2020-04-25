@@ -1,8 +1,11 @@
 package com.demo.node;
 
-import org.neo4j.ogm.annotation.*;
+import org.neo4j.ogm.annotation.GeneratedValue;
+import org.neo4j.ogm.annotation.Id;
+import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
 
-import java.util.List;
+import java.util.Set;
 
 
 @NodeEntity(label = "Specialty")
@@ -12,10 +15,9 @@ public class Specialty {
     private Long id;
     private String name;
     @Relationship(type = "STUDY_AT", direction = Relationship.INCOMING)
-    private List<Student> studentList;
-//    @Relationship(type = "BELONG_TO")
-//    private Belong belong;
-
+    private Set<Student> studentList;
+    @Relationship(type = "BELONG_TO")
+    private Belong belong;
 
     public Long getId() {
         return id;
@@ -33,13 +35,29 @@ public class Specialty {
         this.name = name;
     }
 
-    public List<Student> getStudentList() {
+    public Set<Student> getStudentList() {
         return studentList;
     }
 
-    public void setStudentList(List<Student> studentList) {
+    public void setStudentList(Set<Student> studentList) {
         this.studentList = studentList;
     }
 
+    public Belong getBelong() {
+        return belong;
+    }
 
+    public void setBelong(Belong belong) {
+        this.belong = belong;
+    }
+
+    @Override
+    public String toString() {
+        return "Specialty{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", studentList=" + studentList +
+                ", belong=" + belong +
+                '}';
+    }
 }

@@ -31,6 +31,7 @@ services:
       - neo4j
 
   neo4j:
+    container_name: neo4j-server
     image: neo4j
     ports:
       - "7474:7474"
