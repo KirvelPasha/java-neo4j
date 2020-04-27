@@ -33,8 +33,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void save(StudentDto studentDto) {
-        Student student = userConverter.convertToEntity(studentDto);
-        System.out.println(student);
         studentRepository.customSave(studentDto.getLogin());
         studentRepository.saveWithRelationship(studentDto.getLogin(), studentDto.getSpecialtyName());
     }
@@ -43,7 +41,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<StudentDto> getByFilter(Integer mark) {
         if (mark < 4 || mark > 10) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Mark should be more than 4 but less than 10");
         }
 
         return studentRepository.getByFilter(mark)
