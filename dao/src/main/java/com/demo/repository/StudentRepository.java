@@ -18,4 +18,11 @@ public interface StudentRepository extends Neo4jRepository<Student, Long> {
 
     @Query("MATCH (s:Student)-[r:STUDY_AT]->(f:Specialty) RETURN s, r, f")
     List<Student> getAllTest();
+
+    @Query("CREATE (a:Student{name: $name})")
+    void customSave(@Param("name") String name);
+
+    @Query("MATCH (a:Student),(b:Specialty) WHERE a.name = $name AND b.name = $specialtyName \n" +
+            " CREATE (a)-[r:STUDY_AT]->(b)")
+    void saveWithRelationship(@Param("name") String name, @Param("specialtyName") String specialtyName);
 }

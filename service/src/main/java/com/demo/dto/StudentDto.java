@@ -14,7 +14,7 @@ public class StudentDto {
     @Min(value = 4)
     private Integer mark;
     private String mail;
-    private Specialty specialty;
+    private String specialtyName;
 
     public Long getId() {
         return id;
@@ -56,12 +56,12 @@ public class StudentDto {
         this.mail = mail;
     }
 
-    public Specialty getSpecialty() {
-        return specialty;
+    public String getSpecialtyName() {
+        return specialtyName;
     }
 
-    public void setSpecialty(Specialty specialty) {
-        this.specialty = specialty;
+    public void setSpecialtyName(String specialtyName) {
+        this.specialtyName = specialtyName;
     }
 
     @Override

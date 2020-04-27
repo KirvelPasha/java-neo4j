@@ -34,8 +34,11 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void save(StudentDto studentDto) {
         Student student = userConverter.convertToEntity(studentDto);
-        studentRepository.save(student);
+        System.out.println(student);
+        studentRepository.customSave(studentDto.getLogin());
+        studentRepository.saveWithRelationship(studentDto.getLogin(), studentDto.getSpecialtyName());
     }
+
 
     @Override
     public List<StudentDto> getByFilter(Integer mark) {
