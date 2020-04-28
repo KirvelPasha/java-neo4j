@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface SpecialtyService {
     List<SpecialtyDto> getAll();
+
+    void save(SpecialtyDto specialtyDto);
 }

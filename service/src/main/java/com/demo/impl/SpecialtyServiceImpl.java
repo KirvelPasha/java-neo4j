@@ -29,4 +29,10 @@ public class SpecialtyServiceImpl implements SpecialtyService {
                 .map(specialtyConverter::convertToDto)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void save(SpecialtyDto specialtyDto) {
+        specialtyRepository.customSave(specialtyDto.getName());
+        specialtyRepository.saveWithRelationship(specialtyDto.getName());
+    }
 }
