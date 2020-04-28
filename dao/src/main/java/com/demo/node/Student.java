@@ -10,8 +10,8 @@ public class Student {
     @Id
     @GeneratedValue
     private Long id;
-    private String login;
-    private String password;
+    private String name;
+    private String surname;
     private Integer mark;
     private String mail;
     @Relationship(type = "STUDY_AT")
@@ -25,20 +25,20 @@ public class Student {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getName() {
+        return name;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public Integer getMark() {
@@ -65,8 +65,8 @@ public class Student {
     public String toString() {
         return "Student{" +
                 "id=" + id +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
                 ", mark=" + mark +
                 ", mail='" + mail + '\'' +
                 ", acting=" + acting +

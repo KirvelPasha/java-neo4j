@@ -3,7 +3,6 @@ package com.demo.impl;
 import com.demo.converter.StudentConverter;
 import com.demo.dto.StudentDto;
 import com.demo.interfaces.StudentService;
-import com.demo.node.Student;
 import com.demo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,8 +32,8 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void save(StudentDto studentDto) {
-        studentRepository.customSave(studentDto.getLogin());
-        studentRepository.saveWithRelationship(studentDto.getLogin(), studentDto.getSpecialtyName());
+        studentRepository.customSave(studentDto.getName(), studentDto.getSurname(), studentDto.getMark(), studentDto.getMail());
+        studentRepository.saveWithRelationship(studentDto.getName(), studentDto.getSpecialtyName());
     }
 
 

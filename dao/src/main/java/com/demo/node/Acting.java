@@ -22,7 +22,7 @@ public class Acting {
     }
 
     public String getStudent() {
-        return student.getLogin();
+        return student.getName();
     }
 
     public void setStudent(Student student) {

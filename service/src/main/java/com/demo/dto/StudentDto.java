@@ -1,19 +1,20 @@
 package com.demo.dto;
 
-import com.demo.node.Specialty;
-
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 public class StudentDto {
     private Long id;
     @NotBlank
-    private String login;
+    private String name;
+    @NotBlank
+    private String surname;
     @NotBlank
     private String password;
     @Min(value = 4)
     private Integer mark;
     private String mail;
+    @NotBlank
     private String specialtyName;
 
     public Long getId() {
@@ -24,12 +25,20 @@ public class StudentDto {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getName() {
+        return name;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getPassword() {
@@ -68,7 +77,7 @@ public class StudentDto {
     public String toString() {
         return "StudentDto{" +
                 "id=" + id +
-                ", login='" + login + '\'' +
+                ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
