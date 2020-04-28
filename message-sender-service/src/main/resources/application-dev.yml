@@ -1,19 +1,9 @@
 spring:
-  application:
-    name: message-sender-service
-
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    protocol: smtp
-    username: your@gmail.com
-    password: your
-
-#  data:
-#    mongodb:
-#      host: mongo
-#      port: 2717
-#      database: email
+  data:
+    mongodb:
+      host: mongo
+      port: 2717
+      database: email
 #      username: test
 #      password: test
 
@@ -23,5 +13,3 @@ eureka:
       defaultZone: http://discovery:8761/eureka
 
 
-server:
-  port: 8082
