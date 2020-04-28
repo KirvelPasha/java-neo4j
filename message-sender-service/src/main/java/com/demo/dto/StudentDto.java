@@ -1,13 +1,9 @@
 package com.demo.dto;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 public class StudentDto {
-    @Id
     private Long id;
     @NotBlank
     private String login;
