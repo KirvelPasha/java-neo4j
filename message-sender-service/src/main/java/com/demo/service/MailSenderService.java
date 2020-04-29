@@ -4,7 +4,6 @@ package com.demo.service;
 import com.demo.dto.StudentDto;
 import com.demo.model.SentMail;
 import com.demo.repository.SentMailRepository;
-import com.demo.wrapper.StudentDtoList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.SimpleMailMessage;
@@ -27,24 +26,27 @@ public class MailSenderService {
         this.sentMailRepository = sentMailRepository;
     }
 
-    public void send(String emailTo, Optional<StudentDtoList> optionalStudentDtoList) {
+    public void sendMailWithStudentInfo(String emailTo, List<StudentDto> studentDtoList) {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setTo(emailTo);
         simpleMailMessage.setSubject(subject);
-        boolean studentsFind = false;
-        if (optionalStudentDtoList.isPresent()) {
-            List<StudentDto> studentDtoList = optionalStudentDtoList.get().getStudentDtoList();
-            if (!studentDtoList.isEmpty()) {
-                this.createMessage(studentDtoList, simpleMailMessage);
-                studentsFind = true;
+        this.createMessage(studentDtoList, simpleMailMessage);
+        this.saveSentMail(emailTo, studentDtoList);
 
-                this.saveSentMail(emailTo, studentDtoList);
-            }
-        }
-        if (!studentsFind) {
-            simpleMailMessage.setText("Sorry");
-        }
         javaMailSender.send(simpleMailMessage);
+    }
+
+    public void sendMailWithoutStudentInfo(String emailTo) {
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+        simpleMailMessage.setTo(emailTo);
+        simpleMailMessage.setSubject(subject);
+        simpleMailMessage.setText("Sorry");
+        javaMailSender.send(simpleMailMessage);
+    }
+
+    public void resetMail(String correctMail, String wrongMail) {
+        Optional<SentMail> sentMailOptional = sentMailRepository.findById(wrongMail);
+        sentMailOptional.ifPresent(sentMail -> this.sendMailWithStudentInfo(correctMail, sentMail.getStudentDtoList()));
     }
 
     private void createMessage(List<StudentDto> studentDtoList, SimpleMailMessage simpleMailMessage) {

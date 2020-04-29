@@ -20,6 +20,7 @@ services:
       - "8082:8082"
     depends_on:
       - discovery
+      - mongo
 
   web:
     container_name: web-server
