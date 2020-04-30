@@ -43,13 +43,8 @@ services:
 
   mongo:
     image: mongo
-#    restart: always
     container_name: mongodb
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME: test
-#      MONGO_INITDB_ROOT_PASSWORD: test
     ports:
       - "2717:27017"
     volumes:
       - datadir:/data/db
-

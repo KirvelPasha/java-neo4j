@@ -9,6 +9,7 @@ import java.util.List;
 @Document(collection = "sentmail")
 public class SentMail {
     @Id
+    private String id;
     private String mail;
     private List<StudentDto> studentDtoList;
 
@@ -18,6 +19,14 @@ public class SentMail {
     }
 
     public SentMail() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getMail() {

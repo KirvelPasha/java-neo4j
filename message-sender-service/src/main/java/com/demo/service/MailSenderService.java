@@ -45,8 +45,13 @@ public class MailSenderService {
     }
 
     public void resetMail(String correctMail, String wrongMail) {
-        Optional<SentMail> sentMailOptional = sentMailRepository.findById(wrongMail);
-        sentMailOptional.ifPresent(sentMail -> this.sendMailWithStudentInfo(correctMail, sentMail.getStudentDtoList()));
+        Optional<SentMail> sentMailOptional = sentMailRepository.findByMail(wrongMail);
+        if (sentMailOptional.isPresent()) {
+            SentMail sentMailWithCorrectMail = sentMailOptional.get();
+            sentMailWithCorrectMail.setMail(correctMail);
+            sentMailRepository.save(sentMailWithCorrectMail);
+            this.sendMailWithStudentInfo(correctMail, sentMailWithCorrectMail.getStudentDtoList());
+        }
     }
 
     private void createMessage(List<StudentDto> studentDtoList, SimpleMailMessage simpleMailMessage) {
