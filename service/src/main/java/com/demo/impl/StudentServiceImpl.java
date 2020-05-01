@@ -32,7 +32,8 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void save(StudentDto studentDto) {
-        studentRepository.customSave(studentDto.getName(), studentDto.getSurname(), studentDto.getMark(), studentDto.getMail());
+        studentRepository.customSave(studentDto.getName(), studentDto.getSurname(),
+                studentDto.getMark(), studentDto.getMail());
         studentRepository.saveWithRelationship(studentDto.getName(), studentDto.getSpecialtyName());
     }
 
@@ -51,8 +52,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<StudentDto> getAllTest() {
-        System.out.println(studentRepository.getAllTest());
-
         return studentRepository.getAllTest()
                 .stream()
                 .map(userConverter::convertToDto)

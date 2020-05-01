@@ -1,5 +1,6 @@
 package com.demo.dto;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
@@ -13,6 +14,7 @@ public class StudentDto {
     private String password;
     @Min(value = 4)
     private Integer mark;
+    @Email
     private String mail;
     @NotBlank
     private String specialtyName;

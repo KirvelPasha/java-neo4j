@@ -29,4 +29,4 @@ public class SpecialtyController {
         specialtyService.save(specialtyDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
- }
+}

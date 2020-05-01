@@ -20,7 +20,7 @@ public interface StudentRepository extends Neo4jRepository<Student, Long> {
     List<Student> getAllTest();
 
     @Query("CREATE (a:Student{name: $name, surname: $surname, mark: $mark, mail: $mail})")
-    void customSave(@Param("name") String name, @Param("surname") String surname , @Param("mark") Integer mark,
+    void customSave(@Param("name") String name, @Param("surname") String surname, @Param("mark") Integer mark,
                     @Param("mail") String mail);
 
     @Query("MATCH (a:Student),(b:Specialty) WHERE a.name = $name AND b.name = $specialtyName \n" +
