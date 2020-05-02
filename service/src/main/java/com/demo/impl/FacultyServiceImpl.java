@@ -20,7 +20,6 @@ public class FacultyServiceImpl implements FacultyService {
 
     @Override
     public FacultyDto get() {
-        System.out.println(facultyRepository.get());
         return facultyConverter.convertToDto(facultyRepository.get());
     }
 }

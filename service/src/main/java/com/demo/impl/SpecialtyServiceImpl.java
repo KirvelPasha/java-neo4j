@@ -33,6 +33,6 @@ public class SpecialtyServiceImpl implements SpecialtyService {
     @Override
     public void save(SpecialtyDto specialtyDto) {
         specialtyRepository.customSave(specialtyDto.getName());
-        specialtyRepository.saveWithRelationship(specialtyDto.getName());
+        specialtyRepository.saveWithRelationship(specialtyDto.getName(), specialtyDto.getDateOfFoundation());
     }
 }

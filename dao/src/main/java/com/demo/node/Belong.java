@@ -7,12 +7,10 @@ public class Belong {
     @Id
     @GeneratedValue
     private Long id;
-
     @StartNode
     private Specialty specialty;
     @EndNode
     private Faculty faculty;
-
     private String dateOfFoundation;
 
 

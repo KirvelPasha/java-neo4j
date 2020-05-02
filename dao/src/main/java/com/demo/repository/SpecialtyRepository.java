@@ -20,6 +20,6 @@ public interface SpecialtyRepository extends Neo4jRepository<Specialty, Long> {
     void customSave(@Param("name") String name);
 
     @Query("MATCH (a:Specialty),(b:Faculty) WHERE a.name = $name AND b.description = 'MMF' \n" +
-            " CREATE (a)-[r:BELONG_TO]->(b)")
-    void saveWithRelationship(@Param("name") String name);
+            " CREATE (a)-[r:BELONG_TO{dateOfFoundation: $dateOfFoundation}]->(b)")
+    void saveWithRelationship(@Param("name") String name, @Param("dateOfFoundation") String dateOfFoundation);
 }

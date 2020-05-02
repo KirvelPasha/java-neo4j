@@ -4,6 +4,7 @@ package com.demo.service;
 import com.demo.dto.StudentDto;
 import com.demo.model.SentMail;
 import com.demo.repository.SentMailRepository;
+import com.demo.utility.HelperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.SimpleMailMessage;
@@ -18,19 +19,21 @@ public class MailSenderService {
     private final String subject = "MMF";
     private final JavaMailSender javaMailSender;
     private final SentMailRepository sentMailRepository;
+    private final HelperImpl helper;
 
     @Autowired
     public MailSenderService(@Qualifier("getJavaMailSender") JavaMailSender javaMailSender,
-                             SentMailRepository sentMailRepository) {
+                             SentMailRepository sentMailRepository, HelperImpl helper) {
         this.javaMailSender = javaMailSender;
         this.sentMailRepository = sentMailRepository;
+        this.helper = helper;
     }
 
     public void sendMailWithStudentInfo(String emailTo, List<StudentDto> studentDtoList) {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setTo(emailTo);
         simpleMailMessage.setSubject(subject);
-        this.createMessage(studentDtoList, simpleMailMessage);
+        helper.createMessage(studentDtoList, simpleMailMessage);
         this.saveSentMail(emailTo, studentDtoList);
 
         javaMailSender.send(simpleMailMessage);
@@ -52,13 +55,6 @@ public class MailSenderService {
             sentMailRepository.save(sentMailWithCorrectMail);
             this.sendMailWithStudentInfo(correctMail, sentMailWithCorrectMail.getStudentDtoList());
         }
-    }
-
-    private void createMessage(List<StudentDto> studentDtoList, SimpleMailMessage simpleMailMessage) {
-        StringBuilder message = new StringBuilder();
-        studentDtoList.forEach(studentDto -> message.append(studentDto.getMail()).append('\n'));
-        simpleMailMessage.setText(message.toString());
-
     }
 
     private void saveSentMail(String emailTo, List<StudentDto> studentDtoList) {
