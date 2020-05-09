@@ -22,4 +22,9 @@ public class FacultyServiceImpl implements FacultyService {
     public FacultyDto get() {
         return facultyConverter.convertToDto(facultyRepository.get());
     }
+
+    @Override
+    public void save(FacultyDto facultyDto) {
+        facultyRepository.customSave(facultyDto.getDescription());
+    }
 }

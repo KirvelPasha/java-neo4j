@@ -12,6 +12,7 @@ public class Faculty {
     @Id
     @GeneratedValue
     private Long id;
+    private String name;
     private String description;
     @Relationship(type = "BELONG_TO", direction = Relationship.INCOMING)
     private Set<Specialty> specialties;
@@ -22,6 +23,14 @@ public class Faculty {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {

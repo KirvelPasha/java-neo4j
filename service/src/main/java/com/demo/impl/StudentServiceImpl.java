@@ -21,7 +21,6 @@ public class StudentServiceImpl implements StudentService {
         this.userConverter = userConverter;
     }
 
-
     @Override
     public List<StudentDto> getAll() {
         return studentRepository.getAll()

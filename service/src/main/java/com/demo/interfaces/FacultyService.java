@@ -4,4 +4,6 @@ import com.demo.dto.FacultyDto;
 
 public interface FacultyService {
     FacultyDto get();
+
+    void save(FacultyDto facultyDto);
 }

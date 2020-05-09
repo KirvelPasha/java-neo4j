@@ -11,5 +11,4 @@ public class ExceptionHandlerImpl {
     public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException exception) {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
     }
-
 }
