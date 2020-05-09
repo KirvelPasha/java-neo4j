@@ -5,6 +5,7 @@ import com.demo.dto.StudentDto;
 import com.demo.interfaces.StudentService;
 import com.demo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,11 +15,14 @@ import java.util.stream.Collectors;
 public class StudentServiceImpl implements StudentService {
     private final StudentRepository studentRepository;
     private final StudentConverter userConverter;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public StudentServiceImpl(StudentRepository studentRepository, StudentConverter userConverter) {
+    public StudentServiceImpl(StudentRepository studentRepository, StudentConverter userConverter,
+                              PasswordEncoder passwordEncoder) {
         this.studentRepository = studentRepository;
         this.userConverter = userConverter;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -31,6 +35,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void save(StudentDto studentDto) {
+//        passwordEncoder.encode("test");
         studentRepository.customSave(studentDto.getName(), studentDto.getSurname(),
                 studentDto.getMark(), studentDto.getMail());
         studentRepository.saveWithRelationship(studentDto.getName(), studentDto.getSpecialtyName());
