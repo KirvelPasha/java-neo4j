@@ -5,7 +5,6 @@ import {Button, Form} from "react-bootstrap";
 
 
 class MailSender extends React.Component {
-    MAIL_SENDER_API_URL = 'http://localhost:8082/mails?';
 
     constructor(props) {
         super(props);
@@ -15,17 +14,23 @@ class MailSender extends React.Component {
         }
     }
 
-    handleChange = e => {
+    handleMailChange = e => {
         this.setState({
-            mail: e.target.value,
-            mark: e.target.value,
+            mail: e.target.value
+        })
+    };
+
+    handleMarkChange = e => {
+        this.setState({
+            mark: e.target.value
         })
     };
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state);
-        axios.get(this.MAIL_SENDER_API_URL);
+        let mailUrl = 'http://localhost:8082/mails?mail=' + this.state.mail + '&mark=' + this.state.mark;
+        console.log(mailUrl);
+        axios.get(mailUrl);
     };
 
     render() {
@@ -34,12 +39,12 @@ class MailSender extends React.Component {
                 <Form.Group controlId="formGroupEmail">
                     <Form.Label className="text-white">Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" name="email" autoComplete="off"
-                                  onChange={this.handleChange}/>
+                                  onChange={this.handleMailChange}/>
                 </Form.Group>
                 <Form.Group controlId="formGroupMark">
                     <Form.Label className="text-white">Mark</Form.Label>
                     <Form.Control type="name" placeholder="Enter mark" name="mark" autoComplete="off"
-                                  onChange={this.handleChange}/>
+                                  onChange={this.handleMarkChange}/>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Get
@@ -47,7 +52,6 @@ class MailSender extends React.Component {
             </Form>
         );
     }
-
 }
 
 export default MailSender;
