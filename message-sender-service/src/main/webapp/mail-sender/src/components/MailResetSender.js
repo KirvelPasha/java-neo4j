@@ -35,12 +35,12 @@ class MailResetSender extends React.Component {
     render() {
         return(
             <Form className="joinForm" onSubmit={this.handleSubmit}>
-                <Form.Group controlId="formGroupEmail">
+                <Form.Group controlId="formGroupCorrectEmail">
                     <Form.Label className="text-black">Correct email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter correct email" name="correctMail" autoComplete="off"
                                   onChange={this.handleCorrectMailChange}/>
                 </Form.Group>
-                <Form.Group controlId="formGroupMark">
+                <Form.Group controlId="formGroupWrongEmail">
                     <Form.Label className="text-black">Wrong email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter wrong email" name="wrongMail" autoComplete="off"
                                   onChange={this.handleWrongMailChange}/>
