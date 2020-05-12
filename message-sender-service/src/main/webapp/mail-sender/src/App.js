@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Col, Container, Row} from "react-bootstrap";
-import MailSender from "./components/MailSender";
+import HideBlock from "./components/HideBlock";
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <Container>
         <Row>
           <Col lg={12} style={marginTop}>
-    <MailSender/>
+              <HideBlock/>
           </Col>
         </Row>
       </Container>

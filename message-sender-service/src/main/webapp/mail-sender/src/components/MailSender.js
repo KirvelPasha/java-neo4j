@@ -37,12 +37,12 @@ class MailSender extends React.Component {
         return(
             <Form className="joinForm" onSubmit={this.handleSubmit}>
                 <Form.Group controlId="formGroupEmail">
-                    <Form.Label className="text-white">Email address</Form.Label>
+                    <Form.Label className="text-black">Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" name="email" autoComplete="off"
                                   onChange={this.handleMailChange}/>
                 </Form.Group>
                 <Form.Group controlId="formGroupMark">
-                    <Form.Label className="text-white">Mark</Form.Label>
+                    <Form.Label className="text-black">Mark</Form.Label>
                     <Form.Control type="name" placeholder="Enter mark" name="mark" autoComplete="off"
                                   onChange={this.handleMarkChange}/>
                 </Form.Group>
