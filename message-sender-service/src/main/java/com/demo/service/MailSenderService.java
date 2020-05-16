@@ -34,7 +34,7 @@ public class MailSenderService {
         simpleMailMessage.setTo(emailTo);
         simpleMailMessage.setSubject(subject);
         helper.createMessage(studentDtoList, simpleMailMessage);
-        this.saveSentMail(emailTo, studentDtoList);
+//        this.saveSentMail(emailTo, studentDtoList);
 
         javaMailSender.send(simpleMailMessage);
     }

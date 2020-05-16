@@ -37,4 +37,10 @@ public class StudentController {
         StudentDtoList studentDtoList = new StudentDtoList(studentService.getByFilter(mark));
         return new ResponseEntity<>(studentDtoList, HttpStatus.OK);
     }
+
+    @DeleteMapping()
+    public ResponseEntity<Void> save(@RequestParam String name, @RequestParam String surname) {
+        studentService.delete(name, surname);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
