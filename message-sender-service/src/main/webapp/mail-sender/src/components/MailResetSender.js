@@ -28,7 +28,6 @@ class MailResetSender extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         let mailUrl = 'http://localhost:8082/mails/reset?correctMail=' + this.state.correctMail + '&wrongMail=' + this.state.wrongMail;
-        console.log(mailUrl);
         axios.get(mailUrl);
     };
 

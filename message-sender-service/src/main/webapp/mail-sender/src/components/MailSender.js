@@ -29,7 +29,6 @@ class MailSender extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         let mailUrl = 'http://localhost:8082/mails?mail=' + this.state.mail + '&mark=' + this.state.mark;
-        console.log(mailUrl);
         axios.get(mailUrl);
     };
 
