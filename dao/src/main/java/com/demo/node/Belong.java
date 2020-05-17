@@ -50,9 +50,7 @@ public class Belong {
     public String toString() {
         return "Belong{" +
                 "id=" + id +
-                ", specialty=" + specialty +
-                ", faculty=" + faculty +
-                ", dateOfFoundation='" + dateOfFoundation + '\'' +
+                ", dateOfFoundation='" + specialty.getDateOfFoundation() + '\'' +
                 '}';
     }
 }

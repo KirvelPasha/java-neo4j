@@ -39,7 +39,7 @@ public class StudentController {
     }
 
     @DeleteMapping()
-    public ResponseEntity<Void> save(@RequestParam String name, @RequestParam String surname) {
+    public ResponseEntity<Void> delete(@RequestParam String name, @RequestParam String surname) {
         studentService.delete(name, surname);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

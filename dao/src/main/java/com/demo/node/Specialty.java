@@ -18,6 +18,7 @@ public class Specialty {
     private Set<Student> studentList;
     @Relationship(type = "BELONG_TO")
     private Belong belong;
+    private String dateOfFoundation;
 
     public Long getId() {
         return id;
@@ -49,6 +50,14 @@ public class Specialty {
 
     public void setBelong(Belong belong) {
         this.belong = belong;
+    }
+
+    public String getDateOfFoundation() {
+        return dateOfFoundation;
+    }
+
+    public void setDateOfFoundation(String dateOfFoundation) {
+        this.dateOfFoundation = dateOfFoundation;
     }
 
     @Override

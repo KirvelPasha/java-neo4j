@@ -1,11 +1,11 @@
-CREATE (n:Student { name: 'Andy'})
+CREATE (n:Student { name: 'Andy', mail: 'studentmmf@gmail.com', mark: 7})
 
 CREATE (n:Specialty { name: 'web'})
 
-CREATE (n:Faculty { description: 'MMF'})
+CREATE (n:Faculty { name: 'MMF'})
 
 MATCH (a:Student),(b:Specialty)
-WHERE a.name = 'Andy' AND b.name = 'web'
+WHERE a.name = 'Stepan' AND b.name = 'mobile'
 CREATE (a)-[r:STUDY_AT]->(b)
 RETURN type(r)
 
