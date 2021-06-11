@@ -1,3 +1,20 @@
 spring:
-  profiles:
-    active: "local"
+  application:
+    name: message-sender-service
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    protocol: smtp
+    username:
+    password:
+
+  data:
+    mongodb:
+      host: localhost
+      port: 2717
+      database: emailStore
+
+
+server:
+  port: 8082
